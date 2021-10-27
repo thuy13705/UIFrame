@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Button, Modal, Row, Col } from 'react-bootstrap'
-import React, { useState } from 'react';
+import { Container, Button, Row, Col } from 'react-bootstrap'
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import ClassCard from '../../components/ClassCart';
@@ -45,8 +45,8 @@ class MyClass extends React.Component {
     render() {
         const { DataisLoaded, items } = this.state;
         console.log("huhu");
-        // if (!DataisLoaded) return <div>
-        //     <h1> Pleses wait some time.... </h1> </div>;
+        if (!DataisLoaded) return <div>
+            <h1> Pleses wait some time.... </h1> </div>;
 
         return (
             <>

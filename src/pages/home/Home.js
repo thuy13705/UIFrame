@@ -44,15 +44,15 @@ class MyClass extends React.Component {
     render() {
         const { DataisLoaded, items } = this.state;
         console.log("huhu");
-        // if (!DataisLoaded) return <div>
-        //     <h1> Pleses wait some time.... </h1> </div>;
+        if (!DataisLoaded) return <div>
+            <h1> Pleses wait some time.... </h1> </div>;
 
         return (
             <>
                 <Container>
+                    <h3> Trang chủ </h3>
                     <CarouselHome className="d-4"/>
                     <div className="empty"></div>
-                    <h3> Trang chủ </h3>
                     <Row xs={1} md={2} lg={3} className="g-4">
                         {
                             items.map(item => (

@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 
 function AddClassdModal({ show, onHide }) {
     const [snackbareopen, setSnack] = useState(false);
-    const [snackmsg, setMsg] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -23,9 +22,10 @@ function AddClassdModal({ show, onHide }) {
             .then(res => res.json())
             .then((result) => {
                 setSnack(true);
-                setMsg(result);
-                alert("Thêm thành công.")
             });
+            if (snackbareopen){
+                alert("Thêm thành công.")
+            }
     }
 
     return (
