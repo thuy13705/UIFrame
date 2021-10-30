@@ -7,30 +7,20 @@ function Footer() {
        <div className="footer">
        <Container>
             <div className="d-flex">
-                <Col>
                     <ListGroup>
-                        <h3>About</h3>
-                        <p>Sitemap</p>
-                        <p>Contact Us</p>
-                        <p>Religious Ceremonies</p>
+                        <h3>Về chúng tôi</h3>
+                        <p>Giới thiệu</p>
+                        <p>Câu hỏi thường gặp</p>
+                        <p>Chính sách bảo mật</p>
                         <p>Gazebo Plans</p>
                     </ListGroup>
-                </Col>
-                <Col>
                     <ListGroup>
-                        <h3>Preferences</h3>
-                        <p>Banana Pre-Order</p>
-                        <p>DNA FAQ</p>
-                        <p>How To Access</p>
-                        <p>Favorite X-Men</p>
+                        <h3>Thông tin</h3>
+                        <p>Facebook: https://fb.com.vn/thuynguyen</p>
+                        <p>Email: myclassweb@gmail.com</p>
+                        <p>SĐT: 0937 948 3764</p>
+                        <p>Youtube: https://youtube.com.vn/thuynguyen</p>
                     </ListGroup>
-                </Col>
-                <Col>
-                    <ListGroup>
-                        <h3>About</h3>
-                        <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
-                    </ListGroup>
-                </Col>
             </div>
         </Container>
        </div>

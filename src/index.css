@@ -51,7 +51,7 @@ body {
   color: #091353;
 }
 
-.card-header{
+.card-header, .card-footer{
   border-color: #091353!important;
   background-color: #ffffff!important;
 }
@@ -67,3 +67,16 @@ body {
 .card-body .title .fa-user{
   margin-right: 10px;
 }
+
+.card-footer button{
+  float: right;
+  background-color: #ffffff;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.card-footer button:hover{
+  background-color: #091353;
+  color:#ffffff;
+}
+

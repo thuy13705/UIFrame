@@ -1,53 +1,45 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button, Row, Col } from 'react-bootstrap'
-import React from 'react';
+import {useEffect,useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import ClassCard from '../../components/ClassCart';
 import AddClassdModal from './AddClassModal'
 
-class MyClass extends React.Component {
-    constructor(props) {
-        super(props);
+function MyClass() {
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [modalShow, setModalShow] = useState(false);
+    const [items, setItems] = useState([]);
 
-        this.state = {
-            modalShow: false,
-            items: [],
-            DataisLoaded: false
-        };
-    }
-
-    fetchClassList() {
+    const fetchClassList=()=>{
         fetch("https://build-class-api.herokuapp.com/course")
             .then(res => res.json())
             .then((json) => {
-                this.setState({
-                    items: json.course,
-                    DataisLoaded: true
-                });
-            });
+                setIsLoaded(true);
+                setItems(json.course);
+            },
+            (error) => {
+                setIsLoaded(true);
+                setError(error);
+              });
     }
 
 
 
-    setModalShow() {
-        this.setState({ modalShow: !this.state.modalShow })
+    const handleModalShow=()=>{
+        setModalShow(!modalShow);
     }
 
-    componentDidMount() {
-        this.fetchClassList();
-    }
+    useEffect(() => {
+        fetchClassList();
+      })
 
-    componentDidUpdate(){
-        this.fetchClassList();
-    }
-
-    render() {
-        const { DataisLoaded, items } = this.state;
-        console.log("huhu");
-        if (!DataisLoaded) return <div>
-            <h1> Pleses wait some time.... </h1> </div>;
-
+    if (error) {
+        return <div>Error: {error.message}</div>;
+      } else if (!isLoaded) {
+        return <div>Loading...</div>;
+      } else {
         return (
             <>
                 <div className="empty"></div>
@@ -55,13 +47,13 @@ class MyClass extends React.Component {
                 <Container>
                     <div className="d-flex">
                         <h3>Lớp học của tôi</h3>
-                        <Button variant="primary" onClick={() => this.setModalShow()}>
+                        <Button variant="primary" onClick={() => handleModalShow()}>
                             <FontAwesomeIcon icon={faPlus} />Thêm
                         </Button>
 
                         <AddClassdModal
-                            show={this.state.modalShow}
-                            onHide={() => this.setModalShow()}
+                            show={modalShow}
+                            onHide={() => handleModalShow()}
                         />
                     </div>
                     <div className="empty"></div>
@@ -71,8 +63,7 @@ class MyClass extends React.Component {
                             items.map(item => (
                                 <Col key={item.id} >
                                     <ClassCard
-                                        name={item.name}
-                                        teacher={item.teacher}
+                                        classItem={item}
                                     ></ClassCard>
                                 </Col>
                             ))
@@ -82,7 +73,7 @@ class MyClass extends React.Component {
                 </Container>
             </>
         );
-    }
+      }
 
 }
 export default MyClass;

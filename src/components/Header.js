@@ -1,20 +1,29 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav, Container, Form, FormControl,Button} from 'react-bootstrap'
-import React from 'react';
+import useState from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch} from '@fortawesome/free-solid-svg-icons'
+import {
+    NavLink
+  } from 'react-router-dom'
 
 function Header() {
+    // const [activeItem,setActiveItem]=useState(activeItemProp);
+
+    // const onMenuItemClick = (e, {name}) => {
+    //     setActiveItem(name)
+    // };
+
     return (
 
         <Navbar expand="lg" sticky="top">
             <Container>
-                <Navbar.Brand href="/">My Class</Navbar.Brand>
+                <Navbar.Brand >My Class</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="/">Trang chủ</Nav.Link>
-                        <Nav.Link href="/course">Lớp của tôi</Nav.Link>
+                        {/* <NavLink to="/" className="nav-link">Trang chủ</NavLink> */}
+                        <NavLink to="/" className="nav-link">Lớp của tôi</NavLink>
 
                     </Nav>
                     <Form className="d-flex">
@@ -29,10 +38,8 @@ function Header() {
                         </Button>
                     </Form>
                     <Nav>
-                        <Nav.Link href="#deets">Đăng nhập</Nav.Link>
-                        <Nav.Link eventKey={2} href="#memes">
-                            Đăng kí
-                        </Nav.Link>
+                        <NavLink to="/login" className="nav-link">Đăng nhập</NavLink>
+                        <NavLink to="/signup" className="nav-link">Đăng kí</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

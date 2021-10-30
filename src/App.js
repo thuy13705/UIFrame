@@ -4,28 +4,33 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import {
   BrowserRouter as Router,
-  Route,
+  Route
 } from 'react-router-dom'
 
 import './App.css';
 import './index.css';
 import MyClass from './pages/classes/MyClass';
-import Home from './pages/home/Home'
 
 function App() {
   return (
     <>
       <Router>
         <div>
-          <Header />
-          {/* <Route path="/:id?" component={PageRoute}/> */}
-          <Route exact path="/" component={Home}/>
-          <Route path="/course" component={MyClass} />
+          <Header/>
+          {/* <Route exact path="/" component={Home}/> */}
+          <Route exact path="/" component={MyClass} />
           <Footer />
         </div>
       </Router>
     </>
   );
 }
+
+// const PageRoute = ({match}) => (
+//   <div>
+//       <Header activeItem={match.params.id != null ? match.params.id : "home"}/>
+//   </div>
+// )
+
 
 export default App;
