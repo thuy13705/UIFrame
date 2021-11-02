@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 
 function DeleteClassdModal({item, show, onHide }) {
     const [snackbareopen, setSnack] = useState(false);
-
+    console.log("id:"+item.id);
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch("https://build-class-api.herokuapp.com/course"+item.id, {
+        fetch("https://build-class-api.herokuapp.com/course/"+item._id, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',
@@ -16,6 +16,7 @@ function DeleteClassdModal({item, show, onHide }) {
         })
             .then(res => res.json())
             .then((result) => {
+                show=!show;
                 setSnack(true);
                 alert("Xoá thành công.");
             }, (error) => {

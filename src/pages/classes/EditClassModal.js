@@ -7,7 +7,7 @@ function EditClassdModal({item, show, onHide }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch("https://build-class-api.herokuapp.com/course/"+item.id, {
+        fetch("https://build-class-api.herokuapp.com/course/"+item._id, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
@@ -46,11 +46,11 @@ function EditClassdModal({item, show, onHide }) {
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="newname">
                         <Form.Label>Tên lớp học</Form.Label>
-                        <Form.Control type="text" defaultValue={item.name}/>
+                        <Form.Control type="text" defaultValue={item.name} required/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="newteacher">
                         <Form.Label>Tên giảng viên</Form.Label>
-                        <Form.Control type="text" defaultValue={item.teacher}/>
+                        <Form.Control type="text" defaultValue={item.teacher} required/>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="teacher">

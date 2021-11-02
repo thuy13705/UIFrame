@@ -45,11 +45,11 @@ function AddClassdModal({ show, onHide }) {
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="name">
                         <Form.Label>Tên lớp học</Form.Label>
-                        <Form.Control type="text" />
+                        <Form.Control type="text" required/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="teacher">
                         <Form.Label>Tên giảng viên</Form.Label>
-                        <Form.Control type="text" />
+                        <Form.Control type="text" required/>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="teacher">
