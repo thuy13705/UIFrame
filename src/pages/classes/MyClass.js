@@ -17,7 +17,7 @@ function MyClass() {
             .then(res => res.json())
             .then((json) => {
                 setIsLoaded(true);
-                setItems(json.course);
+                setItems(json);
             },
             (error) => {
                 setIsLoaded(true);
